@@ -5,12 +5,23 @@ object tom {
         return 5 + energia /10
     }
 
-    method correMetros (metros){
+    method correMetros(metros){
         energia -= metros/2
     }
 
-    method comeRaton (raton){
+    method comeRaton(raton){
         energia += 12 + raton.peso()
+    }
+
+    method puedecazar(metros) {
+        return energia > energia - metros/2
+    }
+
+    method cazar(metros,raton) {
+        if(self.puedecazar(metros)) {
+            self.correMetros (metros)
+            self.comeRaton(raton)
+        }
     }
 
 }
@@ -24,7 +35,6 @@ object jerry {
 
     method cumpleaños(){
         edad += 1
-        
     }
 }
 
@@ -34,6 +44,12 @@ object nibbles {
     }
 }
 
+object mickey {
+    var edad = 25
 
+    method peso (){
+        return 10 + edad * 0.2
+    }
+}
 
 // Inventar otro ratón
